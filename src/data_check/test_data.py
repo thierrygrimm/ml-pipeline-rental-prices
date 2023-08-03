@@ -67,6 +67,6 @@ def test_row_count(data):
 
 def test_price_range(data, min_price, max_price):
     """
-    Test count of rows to be in range between 15k and 1M
+    Test whether price is in range
     """
     assert data['price'].between(min_price, max_price).all()
