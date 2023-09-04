@@ -21,23 +21,35 @@
       <a href="#files-and-data-description">Files and data description</a>
     </li>
     <li>
-      <a href="#models">Models</a>
+      <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#metrics">Metrics</a></li>
-        <li><a href="#features">Features</a></li>
+        <li><a href="#environment">Environment</a></li>
+        <li><a href="#weights-and-biases">Weights and Biases</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#ml-pipeline">ML Pipeline</a>
       <ul>
-        <li><a href="#requirements">Requirements</a></li>
-        <li><a href="#usage">Usage</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#overview">Overview</a></li>
         <li><a href="#running">Running</a></li>
+        <li><a href="#reference-dataset">Reference dataset</a></li>
+        <li><a href="#exploratory-data-analysis-(EDA)">Exploratory Data Analysis (EDA)</a></li>
+        <li><a href="#data-tests">Data tests</a></li>
+        <li><a href="#data-segregation">Data segregation</a></li>
+        <li><a href="#model-training">Model training</a></li>
+        <li><a href="#model-testing">Model testing</a></li>
+        <li><a href="#configuration-file">Configuration file</a></li>
       </ul>
     </li>
-    <li><a href="#unit-testing">Unit Testing</a></li>
+    <li>
+      <a href="#issues">Issues</a>
+      <ul>
+        <li><a href="#errors">Errors</a></li>
+        <li><a href="#filing-an-issue">Filing an issue</a></li>
+      </ul>
+    </li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
-    <li><a href="#issues">Issues</a></li>
     <li><a href="#license">License</a></li>
   </ol>
 </details>
@@ -50,7 +62,7 @@ cadence through a reusable end-to-end pipeline.
 
 :star2: Highlights:
 
-1. Reproducible end-to-end MLflow pipeline to predict rental prices, automatic, from data ingestion to the model deployment.
+1. Reproducible end-to-end MLflow pipeline to predict rental prices, automatic, from data to the final model.
 2. The pipeline is built for real-world data with noise, missing values, and outliers and can adapt to new data.
 3. Uses W&B (Weights and Biases) to track and visualize experiment results, store artifacts and trained models. This
    facilitates collaboration with reviewers and stakeholders.
