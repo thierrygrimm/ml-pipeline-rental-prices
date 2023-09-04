@@ -2,6 +2,7 @@
 
 ![Example](images/Rental_Prices.png "Example")
 
+
 # ML Pipeline for Predicting Short-Term Rental Prices [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EFQXNQ7UYXYKW&source=url)
 
 <div align='left'>
@@ -124,23 +125,26 @@ cadence through a reusable end-to-end pipeline.
 
 ## Getting started
 
-### Requirements
+### Environment
 
 Make sure to have conda installed and ready. Then create a new environment using the ```environment.yml``` file provided
 in the root of the repository and activate it:
 
 ~~~bash
->  conda env create -f environment.yml
+conda env create -f environment.yml
 ~~~
 
 ~~~bash
->  conda activate nyc_airbnb_dev
+conda activate nyc_airbnb_dev
 ~~~
+
+### Weights and Biases
 
 Make sure you are logged in to Weights & Biases. Get your API key from W&B by going to https://wandb.ai/authorize .
+Enter the retrieved API key by executing: 
 
 ~~~bash
->  wandb login [your API key]
+wandb login [your API key]
 ~~~
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -201,7 +205,7 @@ This will be needed for the ```data_check``` step as it compares the newest data
 
 Run the first two steps of the pipeline (make sure there are no spaces in between multiple steps):
 ~~~bash
->  mlflow run . -P steps="data_download,data_clean"
+mlflow run . -P steps="data_download,data_clean"
 ~~~
 
 You will see a message similar to:
@@ -233,7 +237,7 @@ distribution of newer data to this reference dataset. After adding the tag, the 
 To inspect the data you may run the optional step of Exploratory Data Analysis (EDA):
 
 ~~~bash
->  mlflow run components/eda
+mlflow run components/eda
 ~~~
 
 This will open a Jupyter Lab notebook where you can interact with the data and run the cells.
@@ -263,7 +267,7 @@ terminate the mlflow run. DO NOT USE CRTL-C
 To continue in the pipeline, run the next steps:
 
 ~~~bash
->  mlflow run . -P steps="data_check,data_split,train_random_forest"
+mlflow run . -P steps="data_check,data_split,train_random_forest"
 ~~~
 The ```data_check``` step will execute a Unit test suite on the shape, format and distribution of the data. 
 
@@ -308,7 +312,7 @@ specifying the parameters through the Hydra configuration system with the multi-
 To run the grid-search, execute:
 
 ~~~bash
->  mlflow run . \
+mlflow run . \
   -P steps=train_random_forest \
   -P hydra_options="modeling.max_tfidf_features=10,15,20 modeling.random_forest.max_features=0.1,0.33,0.5,0.75 -m"
 ~~~
@@ -331,22 +335,22 @@ After which it should look something like this:
 Now that you tagged the model for production you can test it by running the following command: 
 
 ~~~bash
->  mlflow run . -P steps=test_model
+mlflow run . -P steps=test_model
 ~~~
 
 
 
-To rerun the entire pipeline on a different dataset, in the root of the directory run:
+To rerun the entire pipeline with a different dataset, in the root of the directory run:
 
 ~~~bash
->  mlflow run . -P hydra_options="etl.sample='sample2.csv'"
+mlflow run . -P hydra_options="etl.sample='sample2.csv'"
 ~~~
 
 
 
 ### Configuration file
 
-All parameters controlling the pipeline are defined in the ``config.yaml`` file. 
+All parameters that control the pipeline are defined in the ``config.yaml`` file. 
 
 This includes the ``project_name``, model hyperparameters and more.
 
