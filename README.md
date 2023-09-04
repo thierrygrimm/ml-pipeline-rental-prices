@@ -35,7 +35,7 @@
         <li><a href="#overview">Overview</a></li>
         <li><a href="#running">Running</a></li>
         <li><a href="#reference-dataset">Reference dataset</a></li>
-        <li><a href="#exploratory-data-analysis-(EDA)">Exploratory Data Analysis (EDA)</a></li>
+        <li><a href="#exploratory-data-analysis-EDA">Exploratory Data Analysis (EDA)</a></li>
         <li><a href="#data-tests">Data tests</a></li>
         <li><a href="#data-segregation">Data segregation</a></li>
         <li><a href="#model-training">Model training</a></li>
@@ -46,7 +46,7 @@
     <li>
       <a href="#issues">Issues</a>
       <ul>
-        <li><a href="#errors">Errors</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
         <li><a href="#filing-an-issue">Filing an issue</a></li>
       </ul>
     </li>
@@ -338,6 +338,9 @@ Now that you tagged the model for production you can test it by running the foll
 mlflow run . -P steps=test_model
 ~~~
 
+This will evaluate the model on the test set with the following metrics:
+1. Mean absolute error (MAE)
+2. R<sup>2</sup>
 
 
 To rerun the entire pipeline with a different dataset, in the root of the directory run:
@@ -345,7 +348,6 @@ To rerun the entire pipeline with a different dataset, in the root of the direct
 ~~~bash
 mlflow run . -P hydra_options="etl.sample='sample2.csv'"
 ~~~
-
 
 
 ### Configuration file
@@ -357,7 +359,7 @@ This includes the ``project_name``, model hyperparameters and more.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Issues
-### Errors
+### Troubleshooting
 
 While running the pipeline, make sure you have added the correct tags before running the ```data_check```
 and ```test_model``` steps. Without the proper tags (```reference```,```prod```) the versioned artifacts will not be
