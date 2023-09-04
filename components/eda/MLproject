@@ -1,0 +1,6 @@
+name: eda
+conda_env: conda.yml
+
+entry_points:
+  main:
+    command: jupyter lab --NotebookApp.iopub_msg_rate_limit=1e6
