@@ -1,9 +1,8 @@
 main:
-  components_repository: "https://github.com/udacity/build-ml-pipeline-for-short-term-rental-prices#components"
-  # All the intermediate files will be copied to this directory at the end of the run.
-  # Set this to null if you are running in prod
-  project_name: nyc_airbnb
-  experiment_name: development
+  components_repository: null
+  project_name: ml-pipeline-rental-prices
+  experiment_name: production
+  # Specify steps separated by commas
   steps: all
 etl:
   sample: "sample1.csv"
